@@ -62,7 +62,7 @@ public class PlayerController : MonoBehaviour{
     }
 
 
-    public void Move(float move, bool crouch, bool jump)
+    public void Move(float move, bool crouch, bool jump, Animator animator)
     {
         // If crouching, check to see if the character can stand up
         if (!crouch)
@@ -111,7 +111,11 @@ public class PlayerController : MonoBehaviour{
             Vector3 targetVelocity = new Vector2(move * 10f, m_Rigidbody2D.velocity.y);
             // And then smoothing it out and applying it to the character
             m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref m_Velocity, m_MovementSmoothing);
-
+            //Debug.Log(m_Rigidbody2D.velocity);
+            if (m_Rigidbody2D.velocity.x > 2.0f || m_Rigidbody2D.velocity.x < -2.0f)
+            {
+                animator.SetBool("isRunning", true);
+            }
             // If the input is moving the player right and the player is facing left...
             if (move > 0 && !m_FacingRight)
             {

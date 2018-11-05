@@ -24,6 +24,7 @@ public class PlayerMotor : MonoBehaviour
         if (Input.GetButtonDown("Jump"))
         {
             Jump();
+            animator.SetBool("isJumping", true);
         }
  
 
@@ -35,11 +36,13 @@ public class PlayerMotor : MonoBehaviour
     }
     public void OnLanding()
     {
+        animator.SetBool("isJumping", false);
     }
 
     void FixedUpdate()
     {
-        controller.Move(horizontalMove * Time.fixedDeltaTime, false, jump);
+        animator.SetBool("isRunning", false);
+        controller.Move(horizontalMove * Time.fixedDeltaTime, false, jump, animator);
         jump = false;
     }
 
