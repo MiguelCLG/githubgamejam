@@ -11,9 +11,9 @@ public class PlayerActions : MonoBehaviour {
 
     //tornar private
     public Element activeElement;
+
     public int numElements;
 
-	// Use this for initialization
 	void Start () {
         elementManager = GetComponent<ElementManager>();
         foreach (Element e in elementManager.elements)
@@ -31,6 +31,7 @@ public class PlayerActions : MonoBehaviour {
         {
             CombineElements();
         }
+        
         if (Input.GetButtonDown("Fire1")) {
             /*TODO
                Se o numElements > 1

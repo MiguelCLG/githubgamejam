@@ -45,9 +45,11 @@ public class ElementManager : MonoBehaviour {
     // Update is called once per frame
     void Update () {
   
-        if (Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKeyDown(KeyCode.Tab))
         {
             combinationStance = !combinationStance;
+            //Time.timeScale = 0.1f;                                    //SLOWDOWN TIME
+
         }
         foreach (Element element in elements)                           //Usar isto para percorrer os elementos
         {

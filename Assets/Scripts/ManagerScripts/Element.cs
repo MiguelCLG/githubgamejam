@@ -9,17 +9,21 @@ public class Element {
     [System.Serializable]
     public struct PossibleCombinations
     {
-        public string name;
-        public string combinationName;
+        public string name; //Agua | Vento 
+        public string combinationName; //Vapor | Energia
     }
+
     public PossibleCombinations[] combinations;
 
     public Material eyeMaterial; //Depois dependendo do Player Mesh ou Textura que tivermos vai ter de ser ajustado
+
     public Color color;
+
     public KeyCode hotkey;
     public GameObject prefab; //Objecto fisico guardado como prefab - basicamente um gameobject que se arrasta para as pastas
 
-    public string name;
+    public string name; //FOGO
+
     public string effect;
     public string type; //Attack or Defense
     
